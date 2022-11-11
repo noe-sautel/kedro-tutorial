@@ -24,10 +24,11 @@ def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
     Returns:
         Split data.
     """
-    X = data[parameters["features"]]
+    X = data[parameters['data_science']['active_modelling_pipeline']['model_options']['features']]
     y = data["price"]
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=parameters["test_size"], random_state=parameters["random_state"]
+        X, y, test_size=parameters['data_science']['active_modelling_pipeline']['model_options']['test_size']
+        , random_state=parameters['data_science']['active_modelling_pipeline']['model_options']['random_state']
     )
     return X_train, X_test, y_train, y_test
 
